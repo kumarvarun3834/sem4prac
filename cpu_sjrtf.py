@@ -23,7 +23,6 @@ def sjrtf(processes):
     while complete < n:
         shortest = -1
         min_bt = float('inf')
-
         for i in range(n):
             if arrival_time[i] <= time and remaining_time[i] > 0 and remaining_time[i] < min_bt:
                 min_bt = remaining_time[i]
