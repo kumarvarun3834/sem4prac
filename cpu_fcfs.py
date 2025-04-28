@@ -12,11 +12,11 @@ def fcfs(processes):
     completion_time=0
     completed=[False]*n
     for i in range(len(processes)):
-        print(f'Process{processes[i][0]} {time} -->')
+        print(f'Process {processes[i][0]} ')
         completion_time+=processes[i][1]
         waiting_time=completion_time-processes[i][1]
         time+=processes[i][1]
-        print(f'{time}')
+        print(f'{time-processes[i][1]} --> {time}')
         completed[i]==True
     print(f'average WT= {waiting_time/n}')
     print(f'average TAT= {completion_time/n}')
