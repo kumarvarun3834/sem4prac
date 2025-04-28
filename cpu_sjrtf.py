@@ -14,6 +14,7 @@ def sjrtf(processes):
     completion_time = [0] * n
     waiting_time = [0] * n
     tat = [0] * n
+    process_sequal=[]
 
     complete = 0
     time = 0
@@ -27,6 +28,8 @@ def sjrtf(processes):
             if arrival_time[i] <= time and remaining_time[i] > 0 and remaining_time[i] < min_bt:
                 min_bt = remaining_time[i]
                 shortest = i
+        
+        process_sequal.append(processes[shortest][0])
 
         if shortest == -1:
             time += 1
@@ -57,5 +60,5 @@ def sjrtf(processes):
 
     print(f"\nAverage Waiting Time: {avg_wt}")
     print(f"Average Turnaround Time: {avg_tat}")
-
+    print(f"runnig sequence= {process_sequal}")
 sjrtf(processes)

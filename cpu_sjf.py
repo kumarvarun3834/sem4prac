@@ -10,6 +10,7 @@ def sjf(processes):
     n=len(processes)
     waiting_time=0
     completion_time=0
+    process_seq=[]
     completed=[False]*n
     for i in range(len(processes)):
         for j in range(0,n-i-1):
@@ -18,10 +19,12 @@ def sjf(processes):
     for i in range(len(processes)):
         print(f'Process {processes[i][0]} {time} -->')
         completion_time+=processes[i][1]
+        process_seq.append(processes[i][0])
         waiting_time=completion_time-processes[i][1]
         time+=processes[i][1]
         print(f'{time}')
         completed[i]==True
     print(f'average WT= {waiting_time/n}')
     print(f'average TAT= {completion_time/n}')
+    print(f"runnig sequence= {process_seq}")
 sjf(processes)

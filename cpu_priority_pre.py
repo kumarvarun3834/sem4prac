@@ -8,9 +8,12 @@ processes = [
 def priority_pre(processes):
     n = len(processes)
     remaining_time = [p[1] for p in processes]
+    pids=[p[0] for p in processes]
     burst_time = [p[1] for p in processes]
     arrival_time = [p[3] for p in processes]
     priority = [p[2] for p in processes]
+
+    process_sequal=[]
 
     completion_time = [0] * n
     waiting_time = [0] * n
@@ -33,6 +36,7 @@ def priority_pre(processes):
             continue
 
         time += 1
+        process_sequal.append(pids[index])
         remaining_time[index] -= 1
 
         if remaining_time[index] == 0:
@@ -43,6 +47,7 @@ def priority_pre(processes):
 
     total_wt = sum(waiting_time)
     total_tat = sum(tat)
+    print(f"runnig sequence= {process_sequal}")
 
     print("PID  BT  Priority  AT  CT  TAT  WT")
     for i in range(n):

@@ -9,10 +9,12 @@ def round_robin(processes,quantum):
     time = 0
     n = len(processes)
     burst_time = [p[1] for p in processes]
+    pids=[p[0] for p in processes]
     remaining_bt = burst_time[:]
     waiting_time = [0] * n
     completion_time = [0] * n
     complete = 0
+    process_sequal=[]
     while complete < n:
         done = True
         for i in range(n):
@@ -22,6 +24,7 @@ def round_robin(processes,quantum):
                     print(f'Process {processes[i][0]} {time} ---> {time + quantum}')
                     time += quantum
                     remaining_bt[i] -= quantum
+                    process_sequal.append(pids[i])
                 else:
                     print(f'Process {processes[i][0]} {time} ---> {time + remaining_bt[i]}')
                     time += remaining_bt[i]
@@ -37,4 +40,6 @@ def round_robin(processes,quantum):
 
     print(f'average WT= {avg_wt}')
     print(f'average TAT= {avg_tat}')
+    print(f'quantum time= {quantum}')
+    print(f"runnig sequence= {process_sequal}")
 round_robin(processes, quantum=2)
