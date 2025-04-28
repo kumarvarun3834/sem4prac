@@ -17,12 +17,12 @@ def sjf(processes):
             if processes[j][1]>processes[j+1][1]:
                 processes[j],processes[j+1]=processes[j+1],processes[j]
     for i in range(len(processes)):
-        print(f'Process {processes[i][0]} {time} -->')
+        print(f'Process {processes[i][0]} ')
         completion_time+=processes[i][1]
         process_seq.append(processes[i][0])
         waiting_time=completion_time-processes[i][1]
         time+=processes[i][1]
-        print(f'{time}')
+        print(f'{time-processes[i][1]} --> {time}')
         completed[i]==True
     print(f'average WT= {waiting_time/n}')
     print(f'average TAT= {completion_time/n}')

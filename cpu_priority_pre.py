@@ -47,11 +47,11 @@ def priority_pre(processes):
 
     total_wt = sum(waiting_time)
     total_tat = sum(tat)
-    print(f"runnig sequence= {process_sequal}")
 
     print("PID  BT  Priority  AT  CT  TAT  WT")
     for i in range(n):
         print(f"{processes[i][0]}    {burst_time[i]}     {priority[i]}      {arrival_time[i]}  {completion_time[i]}  {tat[i]}   {waiting_time[i]}")
     print(f"\nAverage Waiting Time: {total_wt / n}")
     print(f"Average Turnaround Time: {total_tat / n}")
+    print(f"runnig sequence= {process_sequal}")
 priority_pre(processes)

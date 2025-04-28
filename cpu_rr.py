@@ -21,12 +21,12 @@ def round_robin(processes,quantum):
             if remaining_bt[i] > 0:
                 done = False
                 if remaining_bt[i] > quantum:
-                    print(f'Process {processes[i][0]} {time} ---> {time + quantum}')
+                    print(f'Process {processes[i][0]} \n{time} ---> {time + quantum}')
                     time += quantum
                     remaining_bt[i] -= quantum
                     process_sequal.append(pids[i])
                 else:
-                    print(f'Process {processes[i][0]} {time} ---> {time + remaining_bt[i]}')
+                    print(f'Process {processes[i][0]} {time} ---> \n{time + remaining_bt[i]}')
                     time += remaining_bt[i]
                     waiting_time[i] = time - burst_time[i]
                     completion_time[i] = time

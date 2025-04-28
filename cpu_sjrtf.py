@@ -38,7 +38,7 @@ def sjrtf(processes):
 
         if shortest != prev_process:
             if prev_process != -1:
-                print(f"Process {processes[prev_process][0]} {start_time} ---> {time}")
+                print(f"Process {processes[prev_process][0]} \n{start_time} ---> {time}")
             start_time = time
             prev_process = shortest
 
@@ -53,7 +53,7 @@ def sjrtf(processes):
 
 
     if prev_process != -1:
-        print(f"Process {processes[prev_process][0]} {start_time} ---> {time}")
+        print(f"Process {processes[prev_process][0]} \n{start_time} ---> {time}")
 
     avg_wt = sum(waiting_time) / n
     avg_tat = sum(tat) / n
